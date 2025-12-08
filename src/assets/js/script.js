@@ -4,11 +4,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const katakana = '刘德山真他妈的帅 从未见过如此有气质的男人';
-const latin = 'DeshanLiu is so handsome';
-const nums = '20041227';
-
-const alphabet = katakana + latin + nums;
+// Default characters while loading
+let alphabet = '01'; 
 
 const fontSize = 16;
 const columns = canvas.width/fontSize;
@@ -18,6 +15,16 @@ const rainDrops = [];
 for( let x = 0; x < columns; x++ ) {
     rainDrops[x] = 1;
 }
+
+// Fetch custom characters from JSON
+fetch('assets/data/matrix.json')
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.chars) {
+            alphabet = data.chars.join('');
+        }
+    })
+    .catch(err => console.error('Error loading matrix chars:', err));
 
 const draw = () => {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
