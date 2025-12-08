@@ -1,0 +1,20 @@
+{
+    "title": "PROJECTS",
+    "items": [
+        {
+            "name": "Project Alpha",
+            "description": "Neural network interface for data visualization.",
+            "tags": ["React", "Node.js"]
+        },
+        {
+            "name": "Project Beta",
+            "description": "Automated bot for market analysis.",
+            "tags": ["Python", "TensorFlow"]
+        },
+        {
+            "name": "Project Gamma",
+            "description": "Secure communication protocol implementation.",
+            "tags": ["Rust", "WASM"]
+        }
+    ]
+}

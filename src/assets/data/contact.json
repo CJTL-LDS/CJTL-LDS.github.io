@@ -1,0 +1,9 @@
+{
+    "title": "CONTACT",
+    "message": "Transmission channels open.",
+    "links": [
+        { "name": "GITHUB", "url": "#" },
+        { "name": "EMAIL", "url": "#" },
+        { "name": "TWITTER", "url": "#" }
+    ]
+}

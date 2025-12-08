@@ -1,0 +1,9 @@
+{
+    "title": "ABOUT ME",
+    "description": "I am a digital architect navigating the infinite streams of data. I build immersive web experiences and robust systems.",
+    "stats": [
+        { "label": "ROLE", "value": "Developer" },
+        { "label": "LEVEL", "value": "Max" },
+        { "label": "LOCATION", "value": "Cyberspace" }
+    ]
+}
