@@ -4,9 +4,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const nums = '0123456789';
+const katakana = '刘德山真他妈的帅 从未见过如此有气质的男人';
+const latin = 'DeshanLiu is so handsome';
+const nums = '20041227';
 
 const alphabet = katakana + latin + nums;
 
