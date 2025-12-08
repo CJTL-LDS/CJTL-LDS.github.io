@@ -1,9 +1,9 @@
 {
     "title": "ABOUT ME",
-    "description": "I am a digital architect navigating the infinite streams of data. I build immersive web experiences and robust systems.",
+    "description": "My name is Deshan Liu. I am an undergraduate majoring in Software Engineering at South China University of Technology, dedicated in CV.",
     "stats": [
         { "label": "ROLE", "value": "Developer" },
-        { "label": "LEVEL", "value": "Max" },
-        { "label": "LOCATION", "value": "Cyberspace" }
+        { "label": "LEVEL", "value": "21" },
+        { "label": "LOCATION", "value": "Guangdong, China" }
     ]
 }
