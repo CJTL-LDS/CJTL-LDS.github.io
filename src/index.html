@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deshan Liu | Cyberpunk Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Deshan Liu | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/ios-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <canvas id="matrix-bg"></canvas>
-    <div class="scanlines"></div>
-    
     <div class="container">
         <header>
-            <nav>
-                <div class="logo" data-text="Deshan Liu">Deshan Liu</div>
-                <ul class="nav-links">
-                    <li><a href="index.html" data-key="home" data-text="HOME">HOME</a></li>
-                    <li><a href="about.html" data-key="about" data-text="ABOUT">ABOUT</a></li>
-                    <li><a href="projects.html" data-key="projects" data-text="PROJECTS">PROJECTS</a></li>
-                    <li><a href="contact.html" data-key="contact" data-text="CONTACT">CONTACT</a></li>
-                </ul>
-            </nav>
+            <div class="avatar-container">
+                <!-- User can replace docs-content/images/avatar.jpg -->
+                <img src="docs-content/images/avatar.jpg" alt="Avatar" onerror="this.src='https://ui-avatars.com/api/?name=Deshan+Liu&background=0D8ABC&color=fff'">
+            </div>
+            <div class="welcome-text">Welcome to my web</div>
         </header>
 
-        <main>
-            <section id="home-hero" class="hero">
-                <h1 class="glitch" data-text="WELCOME TO THE NET">WELCOME TO THE NET</h1>
-                <p class="subtitle">System Online. Access Granted.</p>
-                <a href="projects.html" class="cyber-btn">INITIALIZE PROTOCOL</a>
-            </section>
-        </main>
+        <!-- About Me Section -->
+        <section class="card about-card" onclick="window.location.href='article.html?path=docs-content/about/index.md'">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content" id="about-preview">
+                Loading...
+            </div>
+        </section>
 
-        <footer>
-            <p>SYSTEM STATUS: STABLE | &copy; 2025 Deshan Liu</p>
-        </footer>
+        <!-- Grid Sections -->
+        <div class="grid-container">
+            <!-- Tech Blog -->
+            <section class="card list-card">
+                <h2 class="section-title">Tech Blog</h2>
+                <ul class="article-list" id="tech-list">
+                    <!-- Items will be injected here -->
+                </ul>
+                <a href="list.html?category=tech" class="more-link">More ...</a>
+            </section>
+
+            <!-- Life Blog -->
+            <section class="card list-card">
+                <h2 class="section-title">Life Blog</h2>
+                <ul class="article-list" id="life-list">
+                    <!-- Items will be injected here -->
+                </ul>
+                <a href="list.html?category=life" class="more-link">More ...</a>
+            </section>
+
+            <!-- Project -->
+            <section class="card list-card">
+                <h2 class="section-title">Project</h2>
+                <ul class="article-list" id="projects-list">
+                    <!-- Items will be injected here -->
+                </ul>
+                <a href="list.html?category=projects" class="more-link">More ...</a>
+            </section>
+        </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/content-loader.js"></script>
+    <script src="assets/js/ios-script.js"></script>
 </body>
 </html>

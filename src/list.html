@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List | Deshan Liu</title>
+    <link rel="stylesheet" href="assets/css/ios-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" style="text-decoration: none; color: var(--accent-color); font-weight: 600;">&larr; Back</a>
+            <div class="welcome-text" style="font-size: 1.2rem; text-transform: capitalize;" id="page-title">List</div>
+        </header>
+
+        <section class="card">
+            <ul class="article-list" id="full-list" style="mask-image: none; -webkit-mask-image: none; overflow: visible;">
+                <!-- Items will be injected here -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="assets/js/ios-script.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        if (category) {
+            document.getElementById('page-title').innerText = category + ' Blog';
+            
+            fetch('assets/data/content.json')
+                .then(res => res.json())
+                .then(data => {
+                    const list = document.getElementById('full-list');
+                    const items = data[category] || [];
+                    
+                    if (items.length === 0) {
+                        list.innerHTML = '<li>No articles found.</li>';
+                        return;
+                    }
+
+                    items.forEach(item => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = `article.html?path=${item.path}`;
+                        a.textContent = item.title;
+                        li.appendChild(a);
+                        list.appendChild(li);
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Deshan Liu</title>
+    <link rel="stylesheet" href="assets/css/ios-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" style="text-decoration: none; color: var(--accent-color); font-weight: 600;">&larr; Back</a>
+            <div class="welcome-text" style="font-size: 1.2rem;">Deshan Liu</div>
+        </header>
+
+        <section class="card">
+            <div id="article-content" class="markdown-body">
+                Loading content...
+            </div>
+        </section>
+    </div>
+
+    <script src="assets/js/ios-script.js"></script>
+    <script>
+        // Simple logic to load article content
+        const urlParams = new URLSearchParams(window.location.search);
+        const path = urlParams.get('path');
+
+        if (path) {
+            fetch(path)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(text => {
+                    const contentDiv = document.getElementById('article-content');
+                    // Fix relative image paths
+                    // If image is ![alt](./img.png) and path is docs-content/tech/post1/index.md
+                    // We need to replace ./ with docs-content/tech/post1/
+                    const basePath = path.substring(0, path.lastIndexOf('/') + 1);
+                    
+                    // Custom renderer to fix image paths
+                    const renderer = new marked.Renderer();
+                    const originalImage = renderer.image;
+                    renderer.image = function(href, title, text) {
+                        if (!href.startsWith('http') && !href.startsWith('/')) {
+                            href = basePath + href;
+                        }
+                        return originalImage.call(this, href, title, text);
+                    };
+
+                    marked.use({ renderer });
+                    contentDiv.innerHTML = marked.parse(text);
+                })
+                .catch(err => {
+                    document.getElementById('article-content').innerText = 'Error loading content: ' + err.message;
+                });
+        } else {
+            document.getElementById('article-content').innerText = 'No article specified.';
+        }
+    </script>
+</body>
+</html>

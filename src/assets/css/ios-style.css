@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #F2F2F7; /* iOS System Gray 6 - Light Gray Background */
+    --card-bg: #FFFFFF;  /* Pure White Cards */
+    --text-primary: #000000;
+    --text-secondary: #8E8E93;
+    --accent-color: #007AFF; /* iOS Blue */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Softer shadow */
+    --radius: 16px; /* Slightly tighter radius */
+}
+
+/* Removed Dark Mode to enforce White/Gray theme */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+}
+
+.avatar-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #fff;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+/* About Me Section */
+.about-card {
+    position: relative;
+    min-height: 200px;
+    cursor: pointer;
+}
+
+.about-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-height: 150px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Grid Layout for Bottom Sections */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.list-card {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.article-list {
+    list-style: none;
+    flex-grow: 1;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.article-list li {
+    margin-bottom: 15px;
+}
+
+.article-list a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    transition: color 0.2s;
+}
+
+.article-list a:hover {
+    color: var(--accent-color);
+}
+
+.more-link {
+    margin-top: auto;
+    text-align: right;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+/* Mouse Effects */
+.trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 122, 255, 0.6);
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 122, 255, 0.4);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Markdown Content Styles */
+.markdown-body {
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.markdown-body p {
+    margin-bottom: 1em;
+}
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 10px;
+}
