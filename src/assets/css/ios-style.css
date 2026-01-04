@@ -92,10 +92,12 @@ header {
 }
 
 .section-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
+    font-size: 1.8rem; /* Increased font size */
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px; /* Space between text and line */
     color: var(--text-primary);
+    border-bottom: 2px solid #E5E5EA; /* Gray solid line (iOS System Gray 4) */
 }
 
 /* About Me Section */
