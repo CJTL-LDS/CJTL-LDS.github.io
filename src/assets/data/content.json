@@ -5,23 +5,23 @@
   },
   "tech": [
     {
-      "title": "Getting Started with React",
-      "path": "docs-content/tech/react-intro.md",
-      "filename": "react-intro.md"
+      "title": "统计学习方法",
+      "path": "docs-content/tech/统计学习方法.md",
+      "filename": "统计学习方法.md"
     }
   ],
   "life": [
     {
-      "title": "My Trip to Japan",
-      "path": "docs-content/life/japan-trip.md",
-      "filename": "japan-trip.md"
+      "title": "我的2025",
+      "path": "docs-content/life/我的2025.md",
+      "filename": "我的2025.md"
     }
   ],
   "projects": [
     {
-      "title": "Personal Website Redesign",
-      "path": "docs-content/projects/website-redesign.md",
-      "filename": "website-redesign.md"
+      "title": "Overleaf插件",
+      "path": "docs-content/projects/Overleaf插件.md",
+      "filename": "Overleaf插件.md"
     }
   ]
 }
