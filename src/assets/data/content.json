@@ -5,28 +5,38 @@
   },
   "tech": [
     {
+      "title": "强化学习总览",
+      "path": "docs-content/tech/强化学习总览.pdf",
+      "filename": "强化学习总览.pdf",
+      "type": "pdf"
+    },
+    {
       "title": "统计学习方法",
       "path": "docs-content/tech/统计学习方法.md",
-      "filename": "统计学习方法.md"
+      "filename": "统计学习方法.md",
+      "type": "md"
     }
   ],
   "life": [
     {
       "title": "问题驱动的Top-Down学习",
       "path": "docs-content/life/Top-Down.md",
-      "filename": "Top-Down.md"
+      "filename": "Top-Down.md",
+      "type": "md"
     },
     {
       "title": "我的2025",
       "path": "docs-content/life/我的2025.md",
-      "filename": "我的2025.md"
+      "filename": "我的2025.md",
+      "type": "md"
     }
   ],
   "projects": [
     {
       "title": "Overleaf插件",
       "path": "docs-content/projects/Overleaf插件.md",
-      "filename": "Overleaf插件.md"
+      "filename": "Overleaf插件.md",
+      "type": "md"
     }
   ]
 }

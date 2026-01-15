@@ -28,34 +28,42 @@
         const path = urlParams.get('path');
 
         if (path) {
-            fetch(path)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(text => {
-                    const contentDiv = document.getElementById('article-content');
-                    // Fix relative image paths
-                    // If image is ![alt](./img.png) and path is docs-content/tech/post1/index.md
-                    // We need to replace ./ with docs-content/tech/post1/
-                    const basePath = path.substring(0, path.lastIndexOf('/') + 1);
-                    
-                    // Custom renderer to fix image paths
-                    const renderer = new marked.Renderer();
-                    const originalImage = renderer.image;
-                    renderer.image = function(href, title, text) {
-                        if (!href.startsWith('http') && !href.startsWith('/')) {
-                            href = basePath + href;
-                        }
-                        return originalImage.call(this, href, title, text);
-                    };
+            if (path.toLowerCase().endsWith('.pdf')) {
+                // PDF Viewer
+                const contentDiv = document.getElementById('article-content');
+                contentDiv.innerHTML = `
+                    <object data="${path}" type="application/pdf" width="100%" height="800px">
+                        <p>Your browser does not support PDFs. <a href="${path}">Download the PDF</a>.</p>
+                    </object>
+                `;
+            } else {
+                // Markdown Viewer
+                fetch(path)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.text();
+                    })
+                    .then(text => {
+                        const contentDiv = document.getElementById('article-content');
+                        // Fix relative image paths
+                        const basePath = path.substring(0, path.lastIndexOf('/') + 1);
+                        
+                        const renderer = new marked.Renderer();
+                        const originalImage = renderer.image;
+                        renderer.image = function(href, title, text) {
+                            if (!href.startsWith('http') && !href.startsWith('/')) {
+                                href = basePath + href;
+                            }
+                            return originalImage.call(this, href, title, text);
+                        };
 
-                    marked.use({ renderer });
-                    contentDiv.innerHTML = marked.parse(text);
-                })
-                .catch(err => {
-                    document.getElementById('article-content').innerText = 'Error loading content: ' + err.message;
-                });
+                        marked.use({ renderer });
+                        contentDiv.innerHTML = marked.parse(text);
+                    })
+                    .catch(err => {
+                        document.getElementById('article-content').innerText = 'Error loading content: ' + err.message;
+                    });
+            }
         } else {
             document.getElementById('article-content').innerText = 'No article specified.';
         }

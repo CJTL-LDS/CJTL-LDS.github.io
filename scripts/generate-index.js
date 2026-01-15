@@ -41,20 +41,20 @@ function scanDirectory(dirName, category) {
             if (file.endsWith('.md')) {
                 const filePath = path.join(dirPath, file);
                 const title = getFirstLine(filePath);
-                // We store the path relative to the root of the repo so fetch can find it
-                // Assuming the site is served from root, and docs is accessible.
-                // If deployed via GH Pages from 'src', 'docs' might not be accessible if it's outside 'src'.
-                // Wait, if we deploy 'src', 'docs' is outside.
-                // We need to copy 'docs' into 'src' during build or deployment?
-                // OR, we should put 'docs' INSIDE 'src' if we want it to be deployed.
-                // The user said "I still need to use docs folder...".
-                // If I deploy 'src', 'docs' won't be there.
-                // I will modify this script to ALSO copy docs to src/docs-content for deployment.
                 
                 content[category].push({
                     title: title,
                     path: `docs-content/${dirName}/${file}`,
-                    filename: file
+                    filename: file,
+                    type: 'md'
+                });
+            } else if (file.endsWith('.pdf')) {
+                const title = path.basename(file, '.pdf');
+                content[category].push({
+                    title: title,
+                    path: `docs-content/${dirName}/${file}`,
+                    filename: file,
+                    type: 'pdf'
                 });
             }
         });
