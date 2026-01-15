@@ -5,22 +5,16 @@
   },
   "tech": [
     {
-      "title": "统计学习方法之决策树",
-      "path": "docs-content/tech/决策树.md",
-      "filename": "决策树.md",
-      "type": "md"
-    },
-    {
       "title": "强化学习总览",
       "path": "docs-content/tech/强化学习总览.pdf",
       "filename": "强化学习总览.pdf",
       "type": "pdf"
     },
     {
-      "title": "统计学习方法",
-      "path": "docs-content/tech/统计学习方法.md",
-      "filename": "统计学习方法.md",
-      "type": "md"
+      "title": "统计学习方法之决策树",
+      "path": "docs-content/tech/统计学习方法之决策树.pdf",
+      "filename": "统计学习方法之决策树.pdf",
+      "type": "pdf"
     }
   ],
   "life": [
@@ -37,12 +31,5 @@
       "type": "md"
     }
   ],
-  "projects": [
-    {
-      "title": "Overleaf插件",
-      "path": "docs-content/projects/Overleaf插件.md",
-      "filename": "Overleaf插件.md",
-      "type": "md"
-    }
-  ]
+  "projects": []
 }
