@@ -5,6 +5,12 @@
   },
   "tech": [
     {
+      "title": "统计学习方法之决策树",
+      "path": "docs-content/tech/决策树.md",
+      "filename": "决策树.md",
+      "type": "md"
+    },
+    {
       "title": "强化学习总览",
       "path": "docs-content/tech/强化学习总览.pdf",
       "filename": "强化学习总览.pdf",
