@@ -5,6 +5,12 @@
   },
   "tech": [
     {
+      "title": "Model-free RL",
+      "path": "docs-content/tech/Model-free RL.pdf",
+      "filename": "Model-free RL.pdf",
+      "type": "pdf"
+    },
+    {
       "title": "强化学习总览",
       "path": "docs-content/tech/强化学习总览.pdf",
       "filename": "强化学习总览.pdf",
